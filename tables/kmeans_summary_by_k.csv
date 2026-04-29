@@ -1,5 +1,5 @@
 ,silhouette,silhouette,calinski_harabasz,calinski_harabasz,davies_bouldin,davies_bouldin,n_iterations,n_iterations
 ,mean,std,mean,std,mean,std,mean,std
 K,,,,,,,,
-2,0.1621,0.0002,6421.3453,0.0028,2.5059,0.0012,31.0,9.5394
-3,0.1162,0.0002,5015.769,2.8281,2.7079,0.0022,29.3333,3.5119
+2,0.1291,0.0327,6920.4097,1151.107,2.5462,0.0197,22.6667,15.5027
+3,0.1282,0.0,6952.9313,0.0,2.3322,0.0,27.6667,8.0829
