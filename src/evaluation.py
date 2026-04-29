@@ -4,25 +4,7 @@ import pandas as pd
 
 
 def evaluate_kmeans_run(X, labels, centroids, history=None):
-    """
-    Avalia uma única execução de k-means.
 
-    Parameters
-    ----------
-    X : pd.DataFrame or np.ndarray
-        Matriz já preprocessada/standardizada usada no clustering.
-    labels : np.ndarray
-        Cluster atribuído a cada ponto.
-    centroids : np.ndarray
-        Centroides finais devolvidos pelo kmeans_scratch.
-    history : list[dict], optional
-        Histórico devolvido pelo kmeans_scratch.
-
-    Returns
-    -------
-    dict
-        Métricas internas da run.
-    """
 
     if isinstance(X, pd.DataFrame):
         X_eval = X.to_numpy(dtype=float)
