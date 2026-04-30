@@ -3,11 +3,15 @@ from src.data_preparation import load_data,report_missingness,data_quality_snaps
 from src.data_preparation import run_preprocessing
 from src.clustering import run_clustering,kmeans_scratch
 from src.evaluation import evaluate_kmeans_run
+from src.dataset_integrity import verify_dataset_integrity
 import pandas as pd
 
 
 base_path = os.path.dirname(__file__)
+data_dir = os.path.join(base_path, "data")
 data_set_path = os.path.join(base_path, "data/hotel_bookings_course_release_v1.csv")
+
+
 
 def explore_k_values_kmeans(X,K_values,M,max_iter=100,base_seed=1000):
     rows = []
@@ -21,7 +25,7 @@ def explore_k_values_kmeans(X,K_values,M,max_iter=100,base_seed=1000):
             metrics = evaluate_kmeans_run(X, labels, centroids, history)
 
             rows.append({
-                               "method": "kmeans",
+                "method": "kmeans",
                 "K": K,
                 "run": run,
                 "seed": seed,
@@ -39,6 +43,7 @@ def explore_k_values_kmeans(X,K_values,M,max_iter=100,base_seed=1000):
             })
 
     all_runs = pd.DataFrame(rows)
+
     export_cols = [
         "method",
         "K",
@@ -90,6 +95,8 @@ def explore_k_values_kmeans(X,K_values,M,max_iter=100,base_seed=1000):
 
 
 def save_kmeans_tables(all_runs_clean,summary_by_k,best_metric_runs,output_dir="tables"):
+   
+
     os.makedirs(output_dir, exist_ok=True)
 
     all_runs_clean.to_csv(
@@ -107,6 +114,10 @@ def save_kmeans_tables(all_runs_clean,summary_by_k,best_metric_runs,output_dir="
     )
 
 def main():
+    ok, details = verify_dataset_integrity(data_dir)
+
+    if not ok:
+        raise ValueError("Dataset integrity check failed. Check the files in the data folder.")
     df = pd.read_csv(data_set_path)
     X_std=run_preprocessing(df)
     #run_clustering(df)

@@ -116,6 +116,7 @@ def robust_scale_iqr(X: np.ndarray) -> np.ndarray:
     return (X - med) / iqr
 #melhorar este funçao antes da entrega coisas com as colunas estarem no meio da funçao e tb os histogramas e salvar os df
 def run_preprocessing(df):
+    snap_data_set=data_quality_snapshot(df)
     df = drop_columns(df)
     snap = data_quality_snapshot(df)
     snap.to_csv(f"{tables_dir}/snapshot.csv")

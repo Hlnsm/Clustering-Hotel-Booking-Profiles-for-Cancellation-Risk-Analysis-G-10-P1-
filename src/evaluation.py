@@ -5,7 +5,6 @@ import pandas as pd
 
 def evaluate_kmeans_run(X, labels, centroids, history=None):
 
-
     if isinstance(X, pd.DataFrame):
         X_eval = X.to_numpy(dtype=float)
     else:
