@@ -1,39 +1,39 @@
-                              , dtype  , n_missing, pct_missing, n_unique, pct_unique
-lead_time                     , float64,         0,         0.0,      479,       0.75
-previous_bookings_not_canceled, float64,         0,         0.0,       73,       0.11
-stays_in_week_nights          , float64,         0,         0.0,       10,       0.02
-adults                        , float64,         0,         0.0,       14,       0.02
-stays_in_weekend_nights       , float64,         0,         0.0,        4,       0.01
-kids                          , float64,         0,         0.0,        6,       0.01
-has_previous_cancellation     , int64  ,         0,         0.0,        2,       0.0
-hotel_City Hotel              , int64  ,         0,         0.0,        2,       0.0
-hotel_Resort Hotel            , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_April      , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_August     , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_December   , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_February   , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_January    , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_July       , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_June       , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_March      , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_May        , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_November   , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_October    , int64  ,         0,         0.0,        2,       0.0
-arrival_date_month_September  , int64  ,         0,         0.0,        2,       0.0
-market_segment_Corporate      , int64  ,         0,         0.0,        2,       0.0
-market_segment_Direct         , int64  ,         0,         0.0,        2,       0.0
-market_segment_Groups         , int64  ,         0,         0.0,        2,       0.0
-market_segment_Offline TA/TO  , int64  ,         0,         0.0,        2,       0.0
-market_segment_Online TA      , int64  ,         0,         0.0,        2,       0.0
-market_segment_Other          , int64  ,         0,         0.0,        2,       0.0
-distribution_channel_Corporate, int64  ,         0,         0.0,        2,       0.0
-distribution_channel_Direct   , int64  ,         0,         0.0,        2,       0.0
-distribution_channel_Other    , int64  ,         0,         0.0,        2,       0.0
-distribution_channel_TA/TO    , int64  ,         0,         0.0,        2,       0.0
-deposit_type_No Deposit       , int64  ,         0,         0.0,        2,       0.0
-deposit_type_Non Refund       , int64  ,         0,         0.0,        2,       0.0
-deposit_type_Refundable       , int64  ,         0,         0.0,        2,       0.0
-customer_type_Contract        , int64  ,         0,         0.0,        2,       0.0
-customer_type_Group           , int64  ,         0,         0.0,        2,       0.0
-customer_type_Transient       , int64  ,         0,         0.0,        2,       0.0
-customer_type_Transient-Party , int64  ,         0,         0.0,        2,       0.0
+,dtype,n_missing,pct_missing,n_unique,pct_unique
+lead_time,float64,0,0.0,479,0.75
+previous_bookings_not_canceled,float64,0,0.0,73,0.11
+stays_in_week_nights,float64,0,0.0,10,0.02
+adults,float64,0,0.0,14,0.02
+stays_in_weekend_nights,float64,0,0.0,4,0.01
+kids,float64,0,0.0,6,0.01
+has_previous_cancellation,int64,0,0.0,2,0.0
+hotel_City Hotel,int64,0,0.0,2,0.0
+hotel_Resort Hotel,int64,0,0.0,2,0.0
+arrival_date_month_April,int64,0,0.0,2,0.0
+arrival_date_month_August,int64,0,0.0,2,0.0
+arrival_date_month_December,int64,0,0.0,2,0.0
+arrival_date_month_February,int64,0,0.0,2,0.0
+arrival_date_month_January,int64,0,0.0,2,0.0
+arrival_date_month_July,int64,0,0.0,2,0.0
+arrival_date_month_June,int64,0,0.0,2,0.0
+arrival_date_month_March,int64,0,0.0,2,0.0
+arrival_date_month_May,int64,0,0.0,2,0.0
+arrival_date_month_November,int64,0,0.0,2,0.0
+arrival_date_month_October,int64,0,0.0,2,0.0
+arrival_date_month_September,int64,0,0.0,2,0.0
+market_segment_Corporate,int64,0,0.0,2,0.0
+market_segment_Direct,int64,0,0.0,2,0.0
+market_segment_Groups,int64,0,0.0,2,0.0
+market_segment_Offline TA/TO,int64,0,0.0,2,0.0
+market_segment_Online TA,int64,0,0.0,2,0.0
+market_segment_Other,int64,0,0.0,2,0.0
+distribution_channel_Corporate,int64,0,0.0,2,0.0
+distribution_channel_Direct,int64,0,0.0,2,0.0
+distribution_channel_Other,int64,0,0.0,2,0.0
+distribution_channel_TA/TO,int64,0,0.0,2,0.0
+deposit_type_No Deposit,int64,0,0.0,2,0.0
+deposit_type_Non Refund,int64,0,0.0,2,0.0
+deposit_type_Refundable,int64,0,0.0,2,0.0
+customer_type_Contract,int64,0,0.0,2,0.0
+customer_type_Group,int64,0,0.0,2,0.0
+customer_type_Transient,int64,0,0.0,2,0.0
+customer_type_Transient-Party,int64,0,0.0,2,0.0
