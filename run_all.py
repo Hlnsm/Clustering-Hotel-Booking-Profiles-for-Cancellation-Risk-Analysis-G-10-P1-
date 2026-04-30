@@ -2,7 +2,7 @@ import os
 from src.data_preparation import load_data,data_quality_snapshot
 from src.data_preparation import run_preprocessing
 from src.clustering import run_clustering,kmeans_scratch
-from src.evaluation import evaluate_kmeans_run
+from src.evaluation import evaluate_kmeans_run,compute_ari_by_k,centroid_profile
 from src.dataset_integrity import verify_dataset_integrity
 import pandas as pd
 
@@ -13,14 +13,19 @@ data_set_path = os.path.join(base_path, "data/hotel_bookings_course_release_v1.c
 
 
 
-def explore_k_values_kmeans(X,K_values,M,max_iter=100,base_seed=1000):
+def explore_k_values_kmeans(X, K_values, M, max_iter=100, base_seed=1000):
     rows = []
 
     for K in K_values:
         for run in range(1, M + 1):
             seed = base_seed + 100 * K + run
 
-            labels, centroids, history = kmeans_scratch(X,K=K,max_iter=max_iter,seed=seed)
+            labels, centroids, history = kmeans_scratch(
+                X,
+                K=K,
+                max_iter=max_iter,
+                seed=seed
+            )
 
             metrics = evaluate_kmeans_run(X, labels, centroids, history)
 
@@ -70,6 +75,21 @@ def explore_k_values_kmeans(X,K_values,M,max_iter=100,base_seed=1000):
         .round(4)
     )
 
+    
+    summary_by_k.columns = [
+        f"{metric}_{stat}" for metric, stat in summary_by_k.columns
+    ]
+
+    summary_by_k = summary_by_k.reset_index()
+
+    ari_by_k = compute_ari_by_k(all_runs).round(4)
+
+    summary_by_k = summary_by_k.merge(
+        ari_by_k,
+        on="K",
+        how="left"
+    )
+
     best_metric_runs = pd.DataFrame([
         {
             "selection_metric": "silhouette",
@@ -94,24 +114,37 @@ def explore_k_values_kmeans(X,K_values,M,max_iter=100,base_seed=1000):
     return all_runs_clean, summary_by_k, best_metric_runs
 
 
-def save_kmeans_tables(all_runs_clean,summary_by_k,best_metric_runs,output_dir="tables"):
-   
-
+def save_kmeans_tables(
+    all_runs_clean,
+    summary_by_k,
+    best_metric_runs,
+    output_dir="tables"
+):
     os.makedirs(output_dir, exist_ok=True)
 
     all_runs_clean.to_csv(
-        os.path.join(output_dir, "kmeans_all_runs_clean.csv"),
+        os.path.join(output_dir, "kmeans_all_runs.csv"),
         index=False
     )
 
     summary_by_k.to_csv(
-        os.path.join(output_dir, "kmeans_summary_by_k.csv")
+        os.path.join(output_dir, "kmeans_summary_by_k.csv"),
+        index=False
     )
 
     best_metric_runs.to_csv(
         os.path.join(output_dir, "kmeans_best_metric_runs.csv"),
         index=False
     )
+
+def save_profile_tables(cluster_tables, K, seed, output_base_dir="tables/clusterProfiles"):
+    output_dir = os.path.join(output_base_dir, f"cluster_interpretation_k{K}_seed{seed}")
+    os.makedirs(output_dir, exist_ok=True)
+
+    for cluster_id, table in cluster_tables.items():
+        table.to_csv(
+            os.path.join(output_dir, f"cluster_{cluster_id}.csv")
+        )
 
 def main():
     ok, details = verify_dataset_integrity(data_dir)
@@ -123,23 +156,15 @@ def main():
     X_std,df_original, df_before_scaling=run_preprocessing(df)
     #run_clustering(df)
     #run_evaluation()
-    labels, centroids, history = kmeans_scratch(X_std, K=5, max_iter=100, seed=42)
+    labels,centroids_k5,history=kmeans_scratch(X_std, K=5, max_iter=100, seed=1504)
 
-    metrics = evaluate_kmeans_run(X_std, labels, centroids, history)
+    profile_tables_k3 = centroid_profile(X_std,centroids_k5,top_n=12,representation_id="kmeans_K5_seed1504")
 
-    metrics
-    print(pd.DataFrame([metrics]).drop(columns=["cluster_sizes"]))
+    save_profile_tables(profile_tables_k3, K=5, seed=1504)
 
-    all_runs_clean, summary_by_k, best_metric_runs = explore_k_values_kmeans(X=X_std,K_values=range(2, 4), M=3,max_iter=100,base_seed=1000)
 
-    print("\n=== All Runs Clean ===")
-    print(all_runs_clean.to_string(index=False))
+    all_runs_clean, summary_by_k, best_metric_runs = explore_k_values_kmeans(X=X_std,K_values=range(2, 9), M=10,max_iter=100,base_seed=1000)
 
-    print("\n=== Summary by K ===")
-    print(summary_by_k)
-
-    print("\n=== Best Metric Runs ===")
-    print(best_metric_runs.to_string(index=False))
 
     save_kmeans_tables(all_runs_clean, summary_by_k, best_metric_runs)
 
