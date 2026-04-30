@@ -1,5 +1,5 @@
 import os
-from src.data_preparation import load_data,report_missingness,data_quality_snapshot
+from src.data_preparation import load_data,data_quality_snapshot
 from src.data_preparation import run_preprocessing
 from src.clustering import run_clustering,kmeans_scratch
 from src.evaluation import evaluate_kmeans_run
@@ -119,7 +119,8 @@ def main():
     if not ok:
         raise ValueError("Dataset integrity check failed. Check the files in the data folder.")
     df = pd.read_csv(data_set_path)
-    X_std=run_preprocessing(df)
+    
+    X_std,df_original, df_before_scaling=run_preprocessing(df)
     #run_clustering(df)
     #run_evaluation()
     labels, centroids, history = kmeans_scratch(X_std, K=5, max_iter=100, seed=42)

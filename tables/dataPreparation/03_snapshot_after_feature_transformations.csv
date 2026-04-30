@@ -1,0 +1,15 @@
+,dtype,n_missing,pct_missing,n_unique,pct_unique
+lead_time,float64,0,0.0,479,0.75
+previous_bookings_not_canceled,float64,0,0.0,73,0.11
+arrival_date_month,str,0,0.0,12,0.02
+stays_in_week_nights,int64,0,0.0,10,0.02
+adults,int64,0,0.0,14,0.02
+stays_in_weekend_nights,int64,0,0.0,4,0.01
+market_segment,str,0,0.0,6,0.01
+distribution_channel,str,0,0.0,4,0.01
+customer_type,str,0,0.0,4,0.01
+kids,float64,0,0.0,6,0.01
+hotel,str,0,0.0,2,0.0
+is_repeated_guest,int64,0,0.0,2,0.0
+deposit_type,str,0,0.0,3,0.0
+has_previous_cancellation,int64,0,0.0,2,0.0

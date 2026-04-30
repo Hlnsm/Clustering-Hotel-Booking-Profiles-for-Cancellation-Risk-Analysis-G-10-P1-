@@ -1,0 +1,4 @@
+feature,Q1,Q3,IQR,lower_bound,upper_bound,n_outliers,pct_outliers
+lead_time,16.0,131.0,115.0,-156.5,303.5,1553,2.424
+stays_in_week_nights,1.0,4.0,3.0,-3.5,8.5,1353,2.112
+stays_in_weekend_nights,0.0,2.0,2.0,-3.0,5.0,202,0.315
