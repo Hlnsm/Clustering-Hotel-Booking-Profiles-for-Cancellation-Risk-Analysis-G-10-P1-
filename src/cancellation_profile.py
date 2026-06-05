@@ -7,8 +7,7 @@ def cancellation_profile_by_cluster(
     df_original: pd.DataFrame,
     labels,
     method: str,
-    representation_id: str,
-) -> pd.DataFrame:
+    representation_id: str,):
    
 
     labels = np.asarray(labels)
@@ -69,8 +68,7 @@ def cancellation_profile_by_cluster(
 def save_cancellation_profile(
     table: pd.DataFrame,
     filename: str,
-    output_dir: str = "tables/clusterProfiles",
-) -> None:
+    output_dir: str = "tables/clusterProfiles",):
     
 
     os.makedirs(output_dir, exist_ok=True)
@@ -86,8 +84,7 @@ def compute_and_save_cancellation_profile(
     method: str,
     representation_id: str,
     filename: str,
-    output_dir: str = "tables/clusterProfiles",
-) -> pd.DataFrame:
+    output_dir: str = "tables/clusterProfiles",):
     
 
     table = cancellation_profile_by_cluster(

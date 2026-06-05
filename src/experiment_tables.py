@@ -219,11 +219,7 @@ def save_gmm_exploration(
     summary_by_k: pd.DataFrame,
     best_metric_runs: pd.DataFrame,
     representation_id: str,
-    base_dir: str = "tables",
-) -> pd.DataFrame:
-    """
-    Saves GMM exploration tables and returns rows for experiments.csv.
-    """
+    base_dir: str = "tables",):
 
     output_dir = representation_output_dir(representation_id, base_dir)
 

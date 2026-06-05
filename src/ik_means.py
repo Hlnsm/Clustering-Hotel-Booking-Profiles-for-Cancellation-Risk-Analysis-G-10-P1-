@@ -92,8 +92,7 @@ def extract_anomalous_cluster(
     initial_centroid: FloatArray,
     seed_index: int,
     tol: float = 1e-12,
-    max_iter: int = 10_000,
-) -> tuple[list[int], FloatArray]:
+    max_iter: int = 10_000,) -> tuple[list[int], FloatArray]:
 
     X = np.asarray(X, dtype=np.float64)
 
@@ -132,8 +131,7 @@ def ikmeans_initialize(
     min_cluster_size: int,
     tol: float = 1e-12,
     max_iter: int = 10_000,
-    use_unit_ranges: bool = False,
-) -> tuple[list[APCluster], FloatArray]:
+    use_unit_ranges: bool = False,) -> tuple[list[APCluster], FloatArray]:
 
     X = np.asarray(X, dtype=np.float64)
 
@@ -234,8 +232,7 @@ def explore_ikmeans_min_cluster_sizes(
     max_iter_ap=10_000,
     max_iter_kmeans=300,
     tol=1e-12,
-    use_unit_ranges=True,
-):
+    use_unit_ranges=True,):
     rows = []
 
     for min_cluster_size in min_cluster_sizes:

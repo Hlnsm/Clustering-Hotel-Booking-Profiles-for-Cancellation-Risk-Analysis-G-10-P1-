@@ -1,5 +1,0 @@
-covariance_type,K,silhouette_mean,silhouette_std,calinski_harabasz_mean,calinski_harabasz_std,davies_bouldin_mean,davies_bouldin_std,aic_mean,aic_std,bic_mean,bic_std,n_iterations_mean,n_iterations_std,avg_max_membership_mean,avg_max_membership_std,pct_ambiguous_0_70_mean,pct_ambiguous_0_70_std,ari_mean,ari_std
-diag,2,0.1092,0.0,11504.5153,0.0,2.9547,0.0,-5045603.7594,0.0005,-5044082.4057,0.0005,6.0,0.0,0.9999,0.0,0.0,0.0,1.0,0.0
-diag,3,0.0778,0.0,6476.9924,0.0,3.3544,0.0,-12127421.8848,0.0002,-12125135.0092,0.0002,12.0,0.0,0.9998,0.0,0.0002,0.0,1.0,0.0
-tied,2,0.1133,0.0,11925.8602,0.0,2.8448,0.0,-9036893.1232,0.0,-9028569.2837,0.0,4.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0
-tied,3,0.1222,0.0,12388.8103,0.143,2.3603,0.0,-9070122.0929,0.4087,-9061410.6474,0.4087,9.0,0.0,0.9792,0.0,0.0283,0.0,1.0,0.0

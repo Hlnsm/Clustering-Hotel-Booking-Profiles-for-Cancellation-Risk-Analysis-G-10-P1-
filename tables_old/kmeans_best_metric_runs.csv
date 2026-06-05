@@ -1,4 +1,0 @@
-selection_metric , method, K, run, seed, silhouette         , calinski_harabasz , davies_bouldin    , n_iterations, converged
-silhouette       , kmeans, 2,   5, 1205, 0.20544984438587474,  7215.424456960596, 1.8601295783158704,            5, True
-calinski_harabasz, kmeans, 5,   7, 1507, 0.16469273425851452, 10173.996720064306, 1.6907413246838494,           19, True
-davies_bouldin   , kmeans, 5,   4, 1504, 0.1647078387699963 , 10173.996524660231, 1.6906407412536488,           40, True

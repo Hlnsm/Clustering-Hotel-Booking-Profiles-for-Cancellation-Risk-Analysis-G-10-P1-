@@ -1,0 +1,6 @@
+method, representation_id                       , cluster, n    , pct_total          , canceled_count, not_canceled_count, cancellation_rate  , global_cancellation_rate, difference_from_global
+kmeans, R1-robust-noADR_kmeans_K5_run10_seed1510,       0, 14076, 0.1178993215512187 ,          14044,                 32, 0.9977266268826371 ,      0.37041628277075134, 0.6273103441118858
+kmeans, R1-robust-noADR_kmeans_K5_run10_seed1510,       1, 20767, 0.17394254125136108,           4845,              15922, 0.23330283623055809,      0.37041628277075134, -0.13711344654019325
+kmeans, R1-robust-noADR_kmeans_K5_run10_seed1510,       2, 21593, 0.1808610436384957 ,           2349,              19244, 0.10878525448061872,      0.37041628277075134, -0.26163102829013263
+kmeans, R1-robust-noADR_kmeans_K5_run10_seed1510,       3, 44210, 0.370299020018427  ,          16513,              27697, 0.3735127799140466 ,      0.37041628277075134, 0.0030964971432952404
+kmeans, R1-robust-noADR_kmeans_K5_run10_seed1510,       4, 18744, 0.15699807354049752,           6473,              12271, 0.34533717456252666,      0.37041628277075134, -0.025079108208224676

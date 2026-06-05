@@ -1,4 +1,0 @@
-feature,Q1,Q3,IQR,lower_bound,upper_bound,n_outliers,pct_outliers
-stays_in_week_nights,1.0,3.0,2.0,-2.0,6.0,3354,2.809
-lead_time,18.0,160.0,142.0,-195.0,373.0,3005,2.517
-stays_in_weekend_nights,0.0,2.0,2.0,-3.0,5.0,265,0.222

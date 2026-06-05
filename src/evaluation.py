@@ -1,5 +1,6 @@
 from sklearn.metrics import silhouette_score, calinski_harabasz_score, davies_bouldin_score, adjusted_rand_score
 import itertools
+import os
 import numpy as np
 import pandas as pd
 
@@ -120,3 +121,18 @@ def centroid_profile(X, centroids, top_n=10, representation_id="unknown"):
         cluster_tables[k] = table
 
     return cluster_tables
+
+
+def save_profile_tables(
+    cluster_tables,
+    profile_id,
+    output_base_dir="tables/clusterProfiles",):
+    output_dir = os.path.join(output_base_dir, profile_id)
+    os.makedirs(output_dir, exist_ok=True)
+
+    for cluster_id, table in cluster_tables.items():
+        table.to_csv(
+            os.path.join(output_dir, f"cluster_{cluster_id}.csv")
+        )
+
+    return output_dir

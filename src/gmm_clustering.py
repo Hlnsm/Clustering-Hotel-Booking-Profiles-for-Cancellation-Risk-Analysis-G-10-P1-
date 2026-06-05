@@ -68,8 +68,7 @@ def explore_k_values_gmm(
     max_iter=300,
     tol=1e-3,
     reg_covar=1e-6,
-    base_seed=3000,
-):
+    base_seed=3000,):
     
 
     X = np.asarray(X, dtype=np.float64)

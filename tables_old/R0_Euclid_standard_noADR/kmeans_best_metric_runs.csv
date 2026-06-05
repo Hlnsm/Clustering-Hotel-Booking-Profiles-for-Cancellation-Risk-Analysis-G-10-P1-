@@ -1,4 +1,0 @@
-selection_metric,method,K,run,seed,silhouette,calinski_harabasz,davies_bouldin,n_iterations,converged
-silhouette,kmeans,2,8,1208,0.28000902952617057,13200.601249988622,1.5215188646478086,4,True
-calinski_harabasz,kmeans,5,5,1505,0.16610487744249858,17991.23092057154,1.6136723677736966,25,True
-davies_bouldin,kmeans,2,8,1208,0.28000902952617057,13200.601249988622,1.5215188646478086,4,True
