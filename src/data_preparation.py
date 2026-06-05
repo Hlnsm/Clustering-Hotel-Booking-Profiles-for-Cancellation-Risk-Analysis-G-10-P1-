@@ -214,9 +214,12 @@ def run_preprocessing(df):
 
     df = drop_columns(df)
 
-    df = df.dropna(subset=["children"])
-    df = df.drop_duplicates()
+    #manter o kids com zero 
+    df["children"] = df["children"].fillna(0)
+
+    #mater duplicados afinal
     df = df.reset_index(drop=True)
+    df_original = df_original.reset_index(drop=True)
 
     n_dups_after_cleaning, snap_after_cleaning = data_quality_snapshot(df)
     snap_after_cleaning.to_csv(f"{tables_dir}/02_snap_after_drops_and_cleaning.csv")
@@ -272,9 +275,13 @@ def run_preprocessing(df):
     cat_cols = df.select_dtypes(include=["object"]).columns
     df_one_hot = pd.get_dummies(df[cat_cols], prefix=cat_cols, dtype=int)
 
-    df = pd.concat([df_standard, df[binary_cols], df_one_hot], axis=1)
+    df_standard = pd.concat([df_standard, df[binary_cols], df_one_hot], axis=1)
+    df_robust=pd.concat([df_robust, df[binary_cols], df_one_hot], axis=1)
 
-    n_dups, snap_full_preprocessing = data_quality_snapshot(df)
-    snap_full_preprocessing.to_csv(f"{tables_dir}/04_snap_final_representation.csv")
+    n_dups_standard, snap_standard = data_quality_snapshot(df_standard)
+    snap_standard.to_csv(f"{tables_dir}/04_snap_final_representation_standard.csv")
 
-    return df, df_original, df_before_scaling
+    n_dups_robust, snap_robust = data_quality_snapshot(df_robust)
+    snap_robust.to_csv(f"{tables_dir}/05_snap_final_representation_robust.csv")
+
+    return df_standard,df_robust, df_original, df_before_scaling
